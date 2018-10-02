@@ -8,21 +8,21 @@ import (
 	"strings"
 )
 
-func ReadNumber() (int) {
+func ReadNumber() int64 {
 	in := bufio.NewReader(os.Stdin)
 	line, _ := in.ReadString('\n')
-	num, _ := strconv.Atoi(strings.TrimSpace(line[:len(line)-1]))
+	num, _ := strconv.ParseInt(strings.TrimSpace(line[:len(line)-1]), 10, 64)
 	return num
 }
 
-func ReadArray() ([]int) {
+func ReadArray() []int64 {
 	in := bufio.NewReader(os.Stdin)
 	line, _ := in.ReadString('\n')
 
 	strs := strings.Split(strings.TrimSpace(line[:len(line)-1]), " ")
-	nums := make([]int, len(strs))
+	nums := make([]int64, len(strs))
 	for i, str := range strs {
-		nums[i], _ = strconv.Atoi(str)
+		nums[i], _ = strconv.ParseInt(str, 10, 64)
 	}
 	return nums
 }
