@@ -8,17 +8,14 @@ import (
 	"strings"
 )
 
-func ReadNumber() int64 {
-	in := bufio.NewReader(os.Stdin)
+func ReadNumber(in *bufio.Reader) int64 {
 	line, _ := in.ReadString('\n')
 	num, _ := strconv.ParseInt(strings.TrimSpace(line[:len(line)-1]), 10, 64)
 	return num
 }
 
-func ReadArray() []int64 {
-	in := bufio.NewReader(os.Stdin)
+func ReadArray(in *bufio.Reader) []int64 {
 	line, _ := in.ReadString('\n')
-
 	strs := strings.Split(strings.TrimSpace(line[:len(line)-1]), " ")
 	nums := make([]int64, len(strs))
 	for i, str := range strs {
@@ -28,8 +25,9 @@ func ReadArray() []int64 {
 }
 
 func main() {
-	n := ReadNumber()
+	in := bufio.NewReader(os.Stdin)
+	n := ReadNumber(in)
 	fmt.Println(n)
-	nums := ReadArray()
+	nums := ReadArray(in)
 	fmt.Println(nums)
 }
