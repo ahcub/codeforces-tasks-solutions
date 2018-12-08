@@ -13,7 +13,7 @@ int main()
     for (int i = 0; i < n; ++i) {
         cin >> a[i];
     }
-    std::sort(a.begin(), a.end());
+    sort(a.begin(), a.end());
     unsigned int latest = a[0];
     unsigned int values_printed = 0;
     if (latest != 0) {
