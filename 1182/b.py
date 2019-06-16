@@ -12,28 +12,24 @@ for i in range(n):
             all_dots.add((i, j))
             line.append((i, j))
         else:
-            if line and len(line) > 1:
-                horizontals.append(line)
-                line = []
-            else:
+            if line:
+                if len(line) > 1:
+                    horizontals.append(line)
                 line = []
     if line and len(line) > 1:
         horizontals.append(line)
     f.append(row)
 
-t_f = list(map(list, zip(*f)))
 verticals = []
 for j in range(m):
-    row = t_f[j]
     line = []
     for i in range(n):
-        if row[i] == '*':
+        if f[i][j] == '*':
             line.append((i, j))
         else:
-            if line and len(line) > 1:
-                verticals.append(line)
-                line = []
-            else:
+            if line:
+                if len(line) > 1:
+                    verticals.append(line)
                 line = []
     if line and len(line) > 1:
         verticals.append(line)
