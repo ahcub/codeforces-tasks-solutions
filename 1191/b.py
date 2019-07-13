@@ -7,7 +7,7 @@ for el in sa:
     groups[el[-1]].append(int(el[0]))
 
 test_arrays = []
-for i in range(1, 7):
+for i in range(1, 8):
     test_arrays.append([i, i+1, i+2])
 
 min_card = 2
